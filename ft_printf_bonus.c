@@ -6,13 +6,13 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:55:30 by naharumi          #+#    #+#             */
-/*   Updated: 2024/11/08 15:51:51 by naharumi         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:39:21 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	print_arg(va_list args, t_flags *flags)
+static int	print_arg(va_list args, t_flags *flags)
 {
 	int	count;
 
@@ -38,29 +38,29 @@ int	print_arg(va_list args, t_flags *flags)
 	return (count);
 }
 
-void	process_s(const char *format, va_list args, t_flags *flags, int *count)
+static void	process_s(const char *s, va_list args, t_flags *flags, int *count)
 {
 	int	i;
 
 	i = 0;
-	while (format[i])
+	while (s[i])
 	{
-		if (format[i] == '%')
+		if (s[i] == '%')
 		{
 			i++;
 			init_flags(flags);
-			while (format[i] && !ft_strchr(SPECIFIERS, format[i]))
-				parse_flags(format, flags, &i);
-			if (format[i] && ft_strchr(SPECIFIERS, format[i]))
+			while (s[i] && !ft_strchr(SPECIFIERS, s[i]))
+				parse_flags(s, flags, &i);
+			if (s[i] && ft_strchr(SPECIFIERS, s[i]))
 			{
-				flags->specifier = format[i];
+				flags->specifier = s[i];
 				i++;
 			}
 			*count += print_arg(args, flags);
 		}
 		else
 		{
-			*count += ft_putchar(format[i]);
+			*count += ft_putchar(s[i]);
 			i++;
 		}
 	}

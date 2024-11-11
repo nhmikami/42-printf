@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_nbr_bonus.c                               :+:      :+:    :+:   */
+/*   ft_printf_nbr_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:00:12 by naharumi          #+#    #+#             */
-/*   Updated: 2024/11/08 17:54:15 by naharumi         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:36:08 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	nbr_minus(long nbr, t_flags *flags)
+static int	nbr_minus(long nbr, t_flags *flags)
 {
 	int	len;
 	int	count;
@@ -39,7 +39,7 @@ int	nbr_minus(long nbr, t_flags *flags)
 	return (count);
 }
 
-int	get_nbr_minwidth(long nbr, t_flags *flags, int len)
+static int	get_nbr_minwidth(long nbr, t_flags *flags, int len)
 {
 	int	min_width;
 
@@ -56,7 +56,7 @@ int	get_nbr_minwidth(long nbr, t_flags *flags, int len)
 	return (min_width);
 }
 
-void	nbr_nominus_put(long nbr, t_flags *flags, int len, int *count)
+static void	nbr_nominus_put(long nbr, t_flags *flags, int len, int *count)
 {
 	if (nbr < 0)
 	{
@@ -78,7 +78,7 @@ void	nbr_nominus_put(long nbr, t_flags *flags, int len, int *count)
 	return ;
 }
 
-int	nbr_nominus(long nbr, t_flags *flags)
+static int	nbr_nominus(long nbr, t_flags *flags)
 {
 	int	len;
 	int	count;

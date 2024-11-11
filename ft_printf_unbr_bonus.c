@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unbr_bonus.c                              :+:      :+:    :+:   */
+/*   ft_printf_unbr_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:16:43 by naharumi          #+#    #+#             */
-/*   Updated: 2024/11/08 17:29:53 by naharumi         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:36:10 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	unbr_minus(unsigned long nbr, t_flags *flags)
+static int	unbr_minus(unsigned long nbr, t_flags *flags)
 {
 	int	count;
 	int	len;
@@ -30,7 +30,7 @@ int	unbr_minus(unsigned long nbr, t_flags *flags)
 	return (count);
 }
 
-int	unbr_nominus(unsigned long nbr, t_flags *flags)
+static int	unbr_nominus(unsigned long nbr, t_flags *flags)
 {
 	int	len;
 	int	count;

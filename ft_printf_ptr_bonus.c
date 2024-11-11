@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ptr_bonus.c                               :+:      :+:    :+:   */
+/*   ft_printf_ptr_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:26:38 by naharumi          #+#    #+#             */
-/*   Updated: 2024/11/08 16:44:26 by naharumi         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:36:09 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	ptr_minus(unsigned long ptr, t_flags *flags, int len)
+static int	ptr_minus(unsigned long ptr, t_flags *flags, int len)
 {
 	int	count;
 

@@ -1,0 +1,282 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_test_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 15:21:38 by naharumi          #+#    #+#             */
+/*   Updated: 2024/11/11 17:44:34 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../ft_printf_bonus.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
+
+int	main()
+{
+	printf("- no args\n");
+	printf(" count = %i\n", ft_printf("no args: oi!"));
+	printf(" count = %i\n", printf("no args: oi!"));
+	
+	printf("\n- char\n");
+	printf(" count = %i\n", ft_printf("char: %c!", 'n'));
+	printf(" count = %i\n", printf("char: %c!", 'n'));
+	printf(" count = %i\n", ft_printf("char: %5c!", 'n'));
+	printf(" count = %i\n", printf("char: %5c!", 'n'));
+	printf(" count = %i\n", ft_printf("char: %-5c!", 'n'));
+	printf(" count = %i\n", printf("char: %-5c!", 'n'));
+	
+	printf("\n- string\n");
+	char	*s = 0;
+	printf(" count = %i\n", ft_printf("string: %s!", "oi"));
+	printf(" count = %i\n", printf("string: %s!", "oi"));
+	printf(" count = %i\n", ft_printf("string: %s!", s));
+	printf(" count = %i\n", printf("string: %s!", s));
+	printf(" count = %i\n", ft_printf("string: %.3s!", s));
+	printf(" count = %i\n", printf("string: %.3s!", s));
+	printf(" count = %i\n", ft_printf("string: %-3.1s!", s));
+	printf(" count = %i\n", printf("string: %-3.1s!", s));
+	printf(" count = %i\n", ft_printf("string: %50.2s!", s));
+	printf(" count = %i\n", printf("string: %50.2s!", s));
+	printf(" count = %i\n", ft_printf("string: %20.6s!", s));
+	printf(" count = %i\n", printf("string: %20.6s!", s));
+	printf(" count = %i\n", ft_printf("string: %10s!", s));
+	printf(" count = %i\n", printf("string: %10s!", s));
+	printf(" count = %i\n", ft_printf("string: %-10s!", s));
+	printf(" count = %i\n", printf("string: %-10s!", s));
+	printf(" count = %i\n", ft_printf("string: %8.5s!", "hello, world"));
+	printf(" count = %i\n", printf("string: %8.5s!", "hello, world"));
+	printf(" count = %i\n", ft_printf("string: %2.5s!", "hello, world"));
+	printf(" count = %i\n", printf("string: %2.5s!", "hello, world"));
+	printf(" count = %i\n", ft_printf("string: %10s!", "hello, world"));
+	printf(" count = %i\n", printf("string: %10s!", "hello, world"));
+	printf(" count = %i\n", ft_printf("string: %20s!", "hello, world"));
+	printf(" count = %i\n", printf("string: %20s!", "hello, world"));
+	printf(" count = %i\n", ft_printf("string: %.s!", "-"));
+	printf(" count = %i\n", printf("string: %.s!", "-"));
+	
+	printf("\n- pointer\n");
+	int x = 42;
+	printf("count = %i\n", ft_printf("pointer: %p!\n", (void*)&x));
+	printf("count = %i\n", printf("pointer: %p!\n", (void*)&x));
+	printf("count = %i\n", ft_printf("pointer: %-30p!\n", (void*)&x));
+	printf("count = %i\n", printf("pointer: %-30p!\n", (void*)&x));
+	printf("count = %i\n", ft_printf("pointer: %30p!\n", (void*)&x));
+	printf("count = %i\n", printf("pointer: %30p!\n", (void*)&x));
+	printf("count = %i\n", ft_printf("pointer: %p!\n", (void*)0));
+	printf("count = %i\n", printf("pointer: %p!\n", (void*)0));
+	
+	printf("\n- integer / double\n");
+	printf("i\n");
+	printf(" count = %i\n", ft_printf("int: %i!", 42));
+	printf(" count = %i\n", printf("int: %i!", 42));
+	printf("08.3i, 8375\n");
+	printf(" count = %i\n", ft_printf("int: %08.3i!", 8375));
+	printf(" count = %i\n", printf("int: %08.3i!", 8375));
+	printf("08.3i, -8375\n");
+	printf(" count = %i\n", ft_printf("int: %08.3i!", -8375));
+	printf(" count = %i\n", printf("int: %08.3i!", -8375));
+	printf("03.7i, 8375\n");
+	printf(" count = %i\n", ft_printf("int: %03.7i!", 8375));
+	printf(" count = %i\n", printf("int: %03.7i!", 8375));
+	printf("03.7i, -8375\n");
+	printf(" count = %i\n", ft_printf("int: %03.7i!", -8375));
+	printf(" count = %i\n", printf("int: %03.7i!", -8375));
+	printf("-08.5i, -42\n");
+	printf(" count = %i\n", ft_printf("int: %-08.5i!", -42));
+	printf(" count = %i\n", printf("int: %-08.5i!", -42));
+	printf("5.i, 0\n");
+	printf(" count = %i\n", ft_printf("int: %5.i!", 0));
+	printf(" count = %i\n", printf("int: %5.i!", 0));
+	printf("-5.i, 0\n");
+	printf(" count = %i\n", ft_printf("int: %-5.i!", 0));
+	printf(" count = %i\n", printf("int: %-5.i!", 0));
+	printf(".i, 0\n");
+	printf(" count = %i\n", ft_printf("int: %.i!", 0));
+	printf(" count = %i\n", printf("int: %.i!", 0));
+	printf("d, INT_MAX\n");
+	printf(" count = %i\n", ft_printf("int: %d!", INT_MAX));
+	printf(" count = %i\n", printf("int: %d!", INT_MAX));
+	printf("d, INT_MIN\n");
+	printf(" count = %i\n", ft_printf("int: %d!", INT_MIN));
+	printf(" count = %i\n", printf("int: %d!", INT_MIN));
+	printf("-10d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %-10d!", 123456));
+	printf(" count = %i\n", printf("int: %-10d!", 123456));
+	printf("-10d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %-10d!", -123456));
+	printf(" count = %i\n", printf("int: %-10d!", -123456));
+	printf("+ d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %+ d!", 123456));
+	printf(" count = %i\n", printf("int: %+ d!", 123456));
+	printf("+010d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %+010d!", 123456));
+	printf(" count = %i\n", printf("int: %+010d!", 123456));
+	printf("+.10d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %+.10d!", 123456));
+	printf(" count = %i\n", printf("int: %+.10d!", 123456));
+	printf("+010d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %+010d!", -123456));
+	printf(" count = %i\n", printf("int: %+010d!", -123456));
+	printf("010d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %010d!", 123456));
+	printf(" count = %i\n", printf("int: %010d!", 123456));
+	printf("010d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %010d!", -123456));
+	printf(" count = %i\n", printf("int: %010d!", -123456));
+	printf(".5d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %.5d!", 123456));
+	printf(" count = %i\n", printf("int: %.5d!", 123456));
+	printf(".10d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %.10d!", -123456));
+	printf(" count = %i\n", printf("int: %.10d!", -123456));
+	printf(" 010d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: % 010d!", 123456));
+	printf(" count = %i\n", printf("int: % 010d!", 123456));
+	printf(" 010d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: % 010d!", -123456));
+	printf(" count = %i\n", printf("int: % 010d!", -123456));
+	printf("+20d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %+20d!", 123456));
+	printf(" count = %i\n", printf("int: %+20d!", 123456));
+	printf("+20d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %+20d!", -123456));
+	printf(" count = %i\n", printf("int: %+20d!", -123456));
+	printf("+-20d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %+-20d!", 123456));
+	printf(" count = %i\n", printf("int: %+-20d!", 123456));
+	printf("+-20d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %+-20d!", -123456));
+	printf(" count = %i\n", printf("int: %+-20d!", -123456));
+	printf(" 20d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: % 20d!", 123456));
+	printf(" count = %i\n", printf("int: % 20d!", 123456));
+	printf(" 20d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: % 20d!", -123456));
+	printf(" count = %i\n", printf("int: % 20d!", -123456));
+	printf(" -20d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: % -20d!", 123456));
+	printf(" count = %i\n", printf("int: % -20d!", 123456));
+	printf(" -20d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: % -20d!", -123456));
+	printf(" count = %i\n", printf("int: % -20d!", -123456));
+	printf("20.10d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %20.10d!", 123456));
+	printf(" count = %i\n", printf("int: %20.10d!", 123456));
+	printf("20.10d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %20.10d!", -123456));
+	printf(" count = %i\n", printf("int: %20.10d!", -123456));
+	printf("-20.10d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %-20.10d!", 123456));
+	printf(" count = %i\n", printf("int: %-20.10d!", 123456));
+	printf("-20.10d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %-20.10d!", -123456));
+	printf(" count = %i\n", printf("int: %-20.10d!", -123456));
+	printf("-20.d, 123456\n");
+	printf(" count = %i\n", ft_printf("int: %-20.d!", 123456));
+	printf(" count = %i\n", printf("int: %-20.d!", 123456));
+	printf("-20.d, -123456\n");
+	printf(" count = %i\n", ft_printf("int: %-20.d!", -123456));
+	printf(" count = %i\n", printf("int: %-20.d!", -123456));
+	printf("+d, 0\n");
+	printf(" count = %i\n", ft_printf("int: %+d!", 0));
+	printf(" count = %i\n", printf("int: %+d!", 0));
+	printf(" d, 0\n");
+	printf(" count = %i\n", ft_printf("int: % d!", 0));
+	printf(" count = %i\n", printf("int: % d!", 0));
+	printf("+d, INT_MAX\n");
+	printf(" count = %i\n", ft_printf("int: %+d!", INT_MAX));
+	printf(" count = %i\n", printf("int: %+d!", INT_MAX));
+	printf("+d, INT_MIN\n");
+	printf(" count = %i\n", ft_printf("int: %+d!", INT_MIN));
+	printf(" count = %i\n", printf("int: %+d!", INT_MIN));
+	printf("+-15d, INT_MAX\n");
+	printf(" count = %i\n", ft_printf("int: %+-15d!", INT_MAX));
+	printf(" count = %i\n", printf("int: %+-15d!", INT_MAX));
+	printf("-15d, INT_MIN\n");
+	printf(" count = %i\n", ft_printf("int: %-15d!", INT_MIN));
+	printf(" count = %i\n", printf("int: %-15d!", INT_MIN));
+	
+	printf("\n- unsigned integer\n");
+	printf("u, 0\n");
+	printf(" count = %i\n", ft_printf("uint: %u!", 0));
+	printf(" count = %i\n", printf("uint: %u!", 0));
+	printf("u, UINT_MAX\n");
+	printf(" count = %i\n", ft_printf("uint: %u!", UINT_MAX));
+	printf(" count = %i\n", printf("uint: %u!", UINT_MAX));
+	printf("10u, 123456\n");
+	printf(" count = %i\n", ft_printf("uint: %10u!", 123456));
+	printf(" count = %i\n", printf("uint: %10u!", 123456));
+	printf("-10u, 123456\n");
+	printf(" count = %i\n", ft_printf("uint: %-10u!", 123456));
+	printf(" count = %i\n", printf("uint: %-10u!", 123456));
+	printf("010u, 123456\n");
+	printf(" count = %i\n", ft_printf("uint: %010u!", 123456));
+	printf(" count = %i\n", printf("uint: %010u!", 123456));
+	printf(".10u, 123456\n");
+	printf(" count = %i\n", ft_printf("uint: %.10u!", 123456));
+	printf(" count = %i\n", printf("uint: %.10u!", 123456));
+	printf("08.5u, 42\n");
+	printf(" count = %i\n", ft_printf("uint: %08.5u!", 42));
+	printf(" count = %i\n", printf("uint: %08.5u!", 42));
+	printf("05.8u, 42\n");
+	printf(" count = %i\n", ft_printf("uint: %05.8u!", 42));
+	printf(" count = %i\n", printf("uint: %05.8u!", 42));
+	
+	printf("\n- hexadecimal\n");
+	printf("X, 0\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %#X!", 0));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %#X!", 0));
+	printf("#10x, 0\n");
+	printf(" count = %i\n", ft_printf("hexadecimal lowercase: %#10x!", 0));
+	printf(" count = %i\n", printf("hexadecimal lowercase: %#10x!", 0));
+	printf("x, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal lowercase: %x!", 255));
+	printf(" count = %i\n", printf("hexadecimal lowercase: %x!", 255));
+	printf("10x, -255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal lowercase: %10x!", -255));
+	printf(" count = %i\n", printf("hexadecimal lowercase: %10x!", -255));
+	printf("X, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %X!", 255));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %X!", 255));
+	printf("8X, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %8X!", 255));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %8X!", 255));
+	printf("08X, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %08X!", 255));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %08X!", 255));
+	printf(".8X, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %.8X!", 255));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %.8X!", 255));
+	printf("#10x, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal lowercase: %#10x!", 255));
+	printf(" count = %i\n", printf("hexadecimal lowercase: %#10x!", 255));
+	printf("#10x, -255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal lowercase: %#10x!", -255));
+	printf(" count = %i\n", printf("hexadecimal lowercase: %#10x!", -255));
+	printf("#010x, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal lowercase: %#010x!", 255));
+	printf(" count = %i\n", printf("hexadecimal lowercase: %#010x!", 255));
+	printf("#.10x, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal lowercase: %#.10x!", 255));
+	printf(" count = %i\n", printf("hexadecimal lowercase: %#.10x!", 255));
+	printf("#X, 255\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %#X!", 255));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %#X!", 255));
+	printf("#X, 1\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %#X!", 1));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %#X!", 1));
+	printf("#.X, 0\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %#.X!", 0));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %#.X!", 0));
+	printf("08.3X, 8375\n");
+	printf(" count = %i\n", ft_printf("hexadecimal uppercase: %08.3X!", 8375));
+	printf(" count = %i\n", printf("hexadecimal uppercase: %08.3X!", 8375));
+	
+	printf("\n- percentage\n");
+	printf(" count = %i\n", ft_printf("percentage case: %%!"));
+	printf(" count = %i\n", printf("percentage case: %%!"));
+}

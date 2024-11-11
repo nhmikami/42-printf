@@ -6,7 +6,7 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:45:38 by naharumi          #+#    #+#             */
-/*   Updated: 2024/11/08 16:01:54 by naharumi         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:36:05 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_flags(t_flags *flags)
 	return ;
 }
 
-void	parse_width(const char *format, t_flags *flags, int *i)
+static void	parse_width(const char *format, t_flags *flags, int *i)
 {
 	if (format[*i] == '-')
 	{

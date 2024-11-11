@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex_bonus.c                               :+:      :+:    :+:   */
+/*   ft_printf_hex_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:00:57 by naharumi          #+#    #+#             */
-/*   Updated: 2024/11/08 17:56:14 by naharumi         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:50:56 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	hex_minus(unsigned long n, t_flags *flags, const char *base)
+static int	hex_minus(unsigned long n, t_flags *flags, const char *base)
 {
 	int	len;
 	int	count;
@@ -37,7 +37,7 @@ int	hex_minus(unsigned long n, t_flags *flags, const char *base)
 	return (count);
 }
 
-int	get_minwidth(unsigned long n, t_flags *flags, int len)
+static int	get_minwidth(unsigned long n, t_flags *flags, int len)
 {
 	int	min_width;
 
@@ -65,7 +65,7 @@ int	get_minwidth(unsigned long n, t_flags *flags, int len)
 	return (min_width);
 }
 
-void	hex_sharp(const char *base, int *count)
+static void	hex_sharp(const char *base, int *count)
 {
 	if (!ft_strncmp(base, "0123456789abcdef", 16))
 		*count += ft_putstr("0x", 2);
@@ -73,7 +73,8 @@ void	hex_sharp(const char *base, int *count)
 		*count += ft_putstr("0X", 2);
 }
 
-int	hex_nominus(unsigned long n, t_flags *flags, const char *base, int *count)
+static int	hex_nominus(unsigned long n, t_flags *flags,
+						const char *base, int *count)
 {
 	int	len;
 	int	min_width;

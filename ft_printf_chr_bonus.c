@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_chr_bonus.c                               :+:      :+:    :+:   */
+/*   ft_printf_chr_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 17:59:23 by naharumi          #+#    #+#             */
-/*   Updated: 2024/11/08 16:09:26 by naharumi         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:36:04 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	print_chr(char c, t_flags *flags)
 	return (count);
 }
 
-int	str_minus(char *str, t_flags *flags, int len)
+static int	str_minus(char *str, t_flags *flags, int len)
 {
 	int	count;
 
@@ -48,7 +48,7 @@ int	str_minus(char *str, t_flags *flags, int len)
 	return (count);
 }
 
-int	get_strlen(char *str, t_flags *flags)
+static int	get_strlen(char *str, t_flags *flags)
 {
 	int	len;
 

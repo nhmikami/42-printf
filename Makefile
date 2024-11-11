@@ -22,7 +22,8 @@ SRCS_BONUS	=	ft_printf_bonus.c \
 OBJS		=	$(SRCS:.c=.o)
 OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
 
-INCLUDES	=	ft_printf.h ft_printf_bonus.h
+INCLUDES	=	ft_printf.h \
+				ft_printf_bonus.h
 
 all:		$(NAME)
 
@@ -43,4 +44,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all bonus sclean fclean re
+.PHONY:		all bonus clean fclean re
